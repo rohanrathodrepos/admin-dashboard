@@ -8,8 +8,8 @@ import { ToasterProvider } from '@/providers/toast-provider'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Admin Dashboard',
-  description: 'Admin Dashboard',
+  title: 'admin-dashboard',
+  description: 'admin-dashboard',
 }
 
 export default function RootLayout({
