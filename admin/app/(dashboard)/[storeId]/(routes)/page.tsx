@@ -7,15 +7,11 @@ interface DashboardPageProps{
 const DashboardPage : React.FC<DashboardPageProps> = async ({
     params
 }) =>{
-    const store = await prismadb.store.findFirst({
-        where:{
-            id: params.storeId
-        }
-    });
-
     return(
-        <div>
-            Active Store: {store?.name}
+        <div className="flex-col">
+            <div className="flex-1 space-y-4">
+
+            </div>
         </div>
     );
 }
