@@ -27,9 +27,11 @@ import { AlertModal } from "@/components/modals/alert-modal"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import ImageUpload from "@/components/ui/image-upload"
 import { Checkbox } from "@/components/ui/checkbox"
+import { Textarea } from "@/components/ui/textarea"
 
 const formSchema = z.object({
   name: z.string().min(1),
+  productdetails : z.string().min(1),
   images: z.object({ url: z.string() }).array(),
   price: z.coerce.number().min(1),
   categoryId: z.string().min(1),
@@ -72,6 +74,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
     price: parseFloat(String(initialData?.price)),
   } : {
     name: '',
+    productdetails:'',
     images: [],
     price: 0,
     categoryId: '',
@@ -297,6 +300,19 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                       This product will not appear anywhere in the store.
                     </FormDescription>
                   </div>
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="productdetails"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Product Details</FormLabel>
+                  <FormControl>
+                    <Textarea disabled={loading} placeholder="Product details" {...field} />
+                  </FormControl>
+                  <FormMessage />
                 </FormItem>
               )}
             />
